@@ -3,15 +3,6 @@
   <component name="EntryPointsManager">
     <entry_points version="2.0" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="localRepository" value="D:\Program Files (x86)\maven\mavenlib-be" />
-        <option name="mavenHome" value="D:/Program Files (x86)/maven/apache-maven-3.1.0-be" />
-        <option name="userSettingsFile" value="D:\Program Files (x86)\maven\apache-maven-3.1.0-be\conf\settings.xml" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
       <profile-state>

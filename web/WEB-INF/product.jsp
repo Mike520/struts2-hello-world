@@ -1,4 +1,6 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%--
   Created by IntelliJ IDEA.
   User: liwenxiang
@@ -15,5 +17,14 @@
 <s:property value="product.name"/>
 </br>
 <s:property value="product.price"/>
+</br>
+<fmt:formatNumber value='${product.price}' pattern="0.00" />
+</br>
+<s:iterator value="productList" var="list">
+    <s:property value="#list.name"/>
+    <s:property value="#list.price"/>
+    <fmt:formatNumber value='${list.price}' pattern="0.00" />
+    </br>
+</s:iterator>
 </body>
 </html>
