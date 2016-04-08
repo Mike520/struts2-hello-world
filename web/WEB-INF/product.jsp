@@ -24,6 +24,7 @@
     <s:property value="#list.name"/>
     <s:property value="#list.price"/>
     <fmt:formatNumber value='${list.price}' pattern="0.00" />
+    <fmt:formatNumber value='${price}' pattern="0.00" />
     </br>
 </s:iterator>
 </body>
