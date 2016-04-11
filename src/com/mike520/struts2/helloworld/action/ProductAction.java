@@ -2,6 +2,7 @@ package com.mike520.struts2.helloworld.action;
 
 import com.mike520.struts2.helloworld.model.Product;
 import com.opensymphony.xwork2.ActionSupport;
+import org.apache.struts2.convention.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,20 +10,24 @@ import java.util.List;
 /**
  * Created by liwenxiang on 2016/4/7.
  */
+@Namespace("")
+@Results({
+        @Result(name = "success", location = "/WEB-INF/product.jsp")
+})
 public class ProductAction extends ActionSupport {
     private Product product;
     private List<Product> productList;
 
-    @Override
-    public String execute() throws Exception {
+    @Action(value = "product")
+    public String getTheProduct() {
         if (productList == null) {
             productList = new ArrayList<Product>();
         }
         for (int i = 0; i < 5; i++) {
-            product = new Product("mouse", (12.345+i));
+            product = new Product("mouse"+i, (12.345+i));
             productList.add(product);
         }
-        return SUCCESS;
+        return "success";
     }
 
     public Product getProduct() {
@@ -43,10 +48,12 @@ public class ProductAction extends ActionSupport {
 
     public static void main(String[] args) {
         ProductAction productAction = new ProductAction();
-        try {
-            productAction.execute();
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (productAction.productList == null) {
+            productAction.productList = new ArrayList<Product>();
+        }
+        for (int i = 0; i < 5; i++) {
+            productAction.product = new Product("mouse"+i, (12.345+i));
+            productAction.productList.add(productAction.product);
         }
         System.out.println("productAction.getProduct() = " + productAction.getProduct());
         System.out.println("productAction.getProductList() = " + productAction.getProductList());

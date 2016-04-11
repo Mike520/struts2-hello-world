@@ -5,14 +5,5 @@
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-<constant name="struts.devMode" value="true" />
-<package name="struts2-hello-world" extends="struts-default">
-    <action name="index">
-        <result>/index.jsp</result>
-    </action>
-    <action name="hello"
-            class="com.mike520.struts2.helloworld.action.ProductAction" method="execute">
-        <result name="success">/WEB-INF/product.jsp</result>
-    </action>
-</package>
+
 </struts>
