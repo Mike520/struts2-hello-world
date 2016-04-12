@@ -20,6 +20,9 @@
         </configuration>
       </facet>
     </facet>
+    <facet type="Spring" name="Spring">
+      <configuration />
+    </facet>
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
@@ -33,5 +36,6 @@
     <orderEntry type="library" name="javax.servlet.jsp.jstl:javax.servlet.jsp.jstl-api:1.2.1" level="project" />
     <orderEntry type="library" name="org.apache.struts:struts2-convention-plugin:2.3.28" level="project" />
     <orderEntry type="library" name="org.apache.struts:struts2-config-browser-plugin:2.3.28" level="project" />
+    <orderEntry type="library" name="org.apache.struts:struts2-spring-plugin:2.3.28" level="project" />
   </component>
 </module>

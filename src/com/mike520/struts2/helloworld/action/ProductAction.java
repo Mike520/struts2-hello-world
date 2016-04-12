@@ -1,6 +1,7 @@
 package com.mike520.struts2.helloworld.action;
 
 import com.mike520.struts2.helloworld.model.Product;
+import com.mike520.struts2.helloworld.service.ProductManager;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.convention.annotation.*;
 
@@ -18,15 +19,12 @@ public class ProductAction extends ActionSupport {
     private Product product;
     private List<Product> productList;
 
+    private ProductManager productManager;
+
     @Action(value = "product")
     public String getTheProduct() {
-        if (productList == null) {
-            productList = new ArrayList<Product>();
-        }
-        for (int i = 0; i < 5; i++) {
-            product = new Product("mouse"+i, (12.345+i));
-            productList.add(product);
-        }
+        productList = productManager.getProducts();
+        product = productList.get(0);
         return "success";
     }
 
@@ -44,6 +42,14 @@ public class ProductAction extends ActionSupport {
 
     public void setProductList(List<Product> productList) {
         this.productList = productList;
+    }
+
+    public ProductManager getProductManager() {
+        return productManager;
+    }
+
+    public void setProductManager(ProductManager productManager) {
+        this.productManager = productManager;
     }
 
     public static void main(String[] args) {

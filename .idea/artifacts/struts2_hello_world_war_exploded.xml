@@ -12,6 +12,7 @@
           <element id="library" level="project" name="javax.servlet.jsp.jstl:javax.servlet.jsp.jstl-api:1.2.1" />
           <element id="library" level="project" name="org.apache.struts:struts2-config-browser-plugin:2.3.28" />
           <element id="library" level="project" name="org.apache.struts:struts2-convention-plugin:2.3.28" />
+          <element id="library" level="project" name="org.apache.struts:struts2-spring-plugin:2.3.28" />
         </element>
       </element>
     </root>
