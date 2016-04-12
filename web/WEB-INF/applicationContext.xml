@@ -2,6 +2,9 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
 <beans>
     <bean id="productManager" class="com.mike520.struts2.helloworld.service.impl.ProductManagerImpl">
-    </bean>
 
+    </bean>
+    <bean id="storeManager" class="com.mike520.struts2.helloworld.service.impl.StoreManagerImpl">
+
+    </bean>
 </beans>
