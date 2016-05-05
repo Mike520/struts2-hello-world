@@ -12,8 +12,10 @@ import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
+import org.apache.struts2.convention.annotation.InterceptorRef;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.Result;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Namespace("")
 public class UploadAction extends ActionSupport {
@@ -24,7 +26,10 @@ public class UploadAction extends ActionSupport {
     private String fileFileName;// input from FileUploadInterceptor
     private String destFileName;// output for jsp
 
-    @Action(value = "upload", results = {
+    @Action(value = "upload", interceptorRefs = {
+            @InterceptorRef(value = "fileUpload", params = {"maximumSize", "2048000", "allowedTypes", "image/x-ms-bmp,image/jpeg,image/gif,image/png,image/x-png,application/excel,application/vnd.ms-excel"}),
+            @InterceptorRef(value = "defaultStack")
+    }, results = {
             @Result(name = SUCCESS, location = "/fileUpload/display.jsp"),
             @Result(name = INPUT, location = "/fileUpload/input.jsp")
     })
