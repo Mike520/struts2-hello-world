@@ -15,6 +15,7 @@ import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.Result;
 
+@Namespace("")
 public class UploadAction extends ActionSupport {
 
     private static final long serialVersionUID = 1L;
@@ -23,8 +24,11 @@ public class UploadAction extends ActionSupport {
     private String fileFileName;// input from FileUploadInterceptor
     private String destFileName;// output for jsp
 
-    @Override
-    public String execute() throws Exception{
+    @Action(value = "upload", results = {
+            @Result(name = SUCCESS, location = "/fileUpload/display.jsp"),
+            @Result(name = INPUT, location = "/fileUpload/input.jsp")
+    })
+    public String upload() {
         try {
             if (file != null) {
                 String savePath = "/test";

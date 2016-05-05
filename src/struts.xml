@@ -7,16 +7,4 @@
 <struts>
     <!-- 将action托管给spring -->
     <constant name="struts.objectFactory" value="spring"></constant>
-
-    <package name="mystruts" extends="struts-default">
-        <action name="upload" class="com.mike520.struts2.helloworld.action.UploadAction">
-            <interceptor-ref name="fileUpload">
-                <param name="allowedTypes">image/x-ms-bmp,image/jpeg,image/gif,image/png,image/x-png,application/excel,application/vnd.ms-excel</param>
-                <param name="maximumSize">2049000</param>
-            </interceptor-ref>
-            <interceptor-ref name="defaultStack"></interceptor-ref>
-            <result>/fileUpload/display.jsp</result>
-            <result name="input">/fileUpload/input.jsp</result>
-        </action>
-    </package>
 </struts>
