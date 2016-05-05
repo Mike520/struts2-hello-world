@@ -7,4 +7,9 @@
 <struts>
     <!-- 将action托管给spring -->
     <constant name="struts.objectFactory" value="spring"></constant>
+    <constant name="struts.configuration.xml.reload" value="true" />
+    <constant name="struts.devMode" value="true" />
+
+    <constant name="struts.multipart.maxSize" value="6144000"/>
+
 </struts>
