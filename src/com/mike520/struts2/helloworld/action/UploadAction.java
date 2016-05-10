@@ -7,15 +7,12 @@ package com.mike520.struts2.helloworld.action;
 import com.opensymphony.xwork2.ActionSupport;
 
 import java.io.*;
-
-import org.apache.commons.io.IOUtils;
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.InterceptorRef;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.Result;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Namespace("")
 public class UploadAction extends ActionSupport {
@@ -35,26 +32,15 @@ public class UploadAction extends ActionSupport {
     })
     public String upload() {
         try {
-            if (file != null) {
-                String savePath = "/test";
-                InputStream is = new FileInputStream(file);
-                String realDestPath = ServletActionContext.getServletContext().getRealPath(savePath);
-                destFileName = realDestPath + "//" + fileFileName;
-                if(StringUtils.isEmpty(destFileName)) {
-                    return ERROR;
-                }
-                File destDir = new File(realDestPath);
-                if(!destDir.exists()) destDir.mkdirs();
-                OutputStream os = new FileOutputStream(destFileName);
-
-                IOUtils.copy(is, os);
-                os.flush();
-                IOUtils.closeQuietly(is);
-                IOUtils.closeQuietly(os);
-                destFileName = savePath+"/"+getFileFileName();
-                return SUCCESS;
+            if (file == null || fileFileName == null) {
+                return INPUT;
             }
-            return INPUT;
+            String path = "/test/";
+            String realPath = ServletActionContext.getServletContext().getRealPath(path);
+            String fileName = realPath + fileFileName;
+            destFileName = path + fileFileName;
+            FileUtils.copyFile(file,new File(fileName));
+            return SUCCESS;
         } catch (IOException e) {
             e.printStackTrace();
             return ERROR;
