@@ -26,7 +26,7 @@ public class MultiUploadAction extends ActionSupport {
     private List<String> destFileName;// output for jsp
 
     @Action(value = "multiUpload", interceptorRefs = {
-            @InterceptorRef(value = "fileUpload", params = {"maximumSize", "2048000", "allowedTypes", "image/x-ms-bmp,image/jpeg,image/gif,image/png,image/x-png,application/excel,application/vnd.ms-excel"}),
+            @InterceptorRef(value = "fileUpload", params = {"maximumSize", "5120000", "allowedExtensions", "gif, jpg, jpeg, bmp, png"}),
             @InterceptorRef(value = "defaultStack")
     }, results = {
             @Result(name = SUCCESS, location = "/fileUpload/multiDisplay.jsp"),
